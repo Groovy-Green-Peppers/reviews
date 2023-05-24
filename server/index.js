@@ -1,5 +1,6 @@
 require('dotenv').config();
-const path = require('path');
+// const path = require('path');
+const db = require('./db');
 
 const express = require('express');
 const morgan = require('morgan');
