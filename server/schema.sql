@@ -1,5 +1,5 @@
 Create Table If Not Exists Reviews (
-  id Serial Primary Key,
+  review_id Serial Primary Key,
   product_id int,
   rating int,
   date bigint,
@@ -15,14 +15,14 @@ Create Table If Not Exists Reviews (
 
 Create Table If Not Exists Review_Photos (
   id Serial Primary Key,
-  review_id int References Reviews(id),
+  review_id int References Reviews(review_id),
   url Varchar(1000)
 );
 
 Create Table If Not Exists Review_Characteristics (
   id Serial Primary Key,
   characteristic_id int,
-  review_id int References Reviews(id),
+  review_id int References Reviews(review_id),
   value int
 );
 

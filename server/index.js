@@ -1,10 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
-const db = require('./db');
+// const db = require('./db');
+const router = require('./routes/reviewsRoutes');
 
 const app = express();
 
+app.use('/reviews', router);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
