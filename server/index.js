@@ -1,13 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
-const db = require('./db');
+// const db = require('./db');
+const router = require('./routes/reviewsRoutes');
 
 const app = express();
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/reviews', router);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
