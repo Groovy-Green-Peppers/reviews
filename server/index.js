@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 // const db = require('./db');
 const router = require('./routes/reviewsRoutes');
+const cors = require('cors');
 
 const app = express();
 

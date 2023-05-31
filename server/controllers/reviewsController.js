@@ -89,8 +89,9 @@ exports.getReviewsMeta = async (req, res) => {
       AND r.reported IS NOT TRUE
       GROUP BY rc.characteristic_id;
     `);
-    characteristicsResponse.rows.forEach((row) => {
-      metaResponse.characteristics[row.characteristic_id] = {
+    characteristicsResponse.rows.forEach((row, i) => {
+      const charNames = [null, 'Comfort', 'Fit', 'Length', 'Quality', 'Width', 'Size'];
+      metaResponse.characteristics[charNames[i + 1]] = {
         id: row.characteristic_id,
         value: row.value,
       };
