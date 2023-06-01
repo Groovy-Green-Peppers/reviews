@@ -29,11 +29,11 @@ exports.getReviews = (req, res) => {
   ARRAY_AGG(json_build_object('id', review_photos.id, 'url', review_photos.url)) AS photos
   FROM reviews
   LEFT JOIN review_photos ON reviews.review_id = review_photos.review_id
-  WHERE reviews.product_id = ${product} AND reviews.reported IS NOT TRUE
+  WHERE reviews.product_id = $1 AND reviews.reported IS NOT TRUE
   GROUP BY reviews.review_id
   ORDER BY reviews.${orderBy} DESC
-  LIMIT ${count} OFFSET ${page * count - count};
-  `)
+  LIMIT $2 OFFSET $3;
+  `, [product, count, page * count - count])
     .then((response) => {
       if (response.rows.length === 0) {
         return res.status(404).json({ error: 'No product with that ID or no reviews for the product.' });
