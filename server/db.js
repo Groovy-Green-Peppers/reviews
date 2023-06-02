@@ -6,7 +6,8 @@ const pool = new Pool({
   database: 'reviews',
   password: 'anything',
   port: 6432,
-  max: 100,
+  max: 200,
+  allowExitOnIdle: true,
 });
 
 module.exports = { pool };
