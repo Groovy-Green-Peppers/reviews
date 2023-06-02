@@ -16,6 +16,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/reviews', router);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server available at http://localhost:${PORT}`);
+app.listen(PORT,'0.0.0.0', () => {
+  console.log(`Server available at ${PORT}`);
 });
