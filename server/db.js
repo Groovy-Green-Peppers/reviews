@@ -5,7 +5,7 @@ const pool = new Pool({
   host: 'ec2-3-133-122-58.us-east-2.compute.amazonaws.com',
   database: 'reviews',
   password: 'anything',
-  port: 5432,
+  port: 6432,
   max: 100,
 });
 
